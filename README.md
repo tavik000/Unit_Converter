@@ -26,7 +26,7 @@ Feel free to support me for no reasons via Wechat Pay or Alipay with QR code bel
 
 
 ![wechat pay](https://github.com/tavik000/Unit_Converter/raw/master/Screenshots/wechatpay.png)
-![alipay(https://github.com/tavik000/Unit_Converter/raw/master/Screenshots/alipay.jpg)
+![alipay](https://github.com/tavik000/Unit_Converter/raw/master/Screenshots/alipay.jpg)
 
 
 
