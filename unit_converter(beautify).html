@@ -1,0 +1,164 @@
+<html>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ 
+<script>
+var input = 0;
+  var output = 0;
+  var formula = [
+    [1,60,0.000046,0.016667,0.018519],
+    [0.016667,1,0.000001,0.000278,0.000309],
+    [21600,1296000,1,360,400],
+    [60,3600,0.002778,1,1.111111],
+    [54,3240,0.0025,0.9,1]  
+ ];
+var status = 0;
+
+function Convert(check)
+{
+  status = check||status;
+  if (status == 2) {
+    var input = document.getElementById('inputTo').value;
+  var output= parseFloat(input) * formula[document.getElementById('selectTo').value][document.getElementById('selectFrom').value];
+  document.getElementById('inputFrom').value= output;;
+  } else {
+    var input = document.getElementById('inputFrom').value;   
+    var output= parseFloat(input) * formula[document.getElementById('selectFrom').value][document.getElementById('selectTo').value];
+    document.getElementById('inputTo').value= output;
+  }
+}
+
+</script>
+
+<style type='text/css'>
+body{text-align:center;}
+.wrapper{width:1025px;margin: 100;margin-left: 770;margin-right: auto;text-align:right;}
+
+@media screen and (max-width: 320px) {
+@-ms-viewport { width: 320px; }
+.wrapper{width:700px;margin: 100;margin-left: 30;margin-right: auto;text-align:left;}
+}
+ 
+@media screen and (min-width: 320px) and (max-width: 480px){
+@-ms-viewport { width: 320px; }
+.wrapper{width:900px;margin: 100;margin-left: 50;margin-right: auto;text-align:left;}
+}
+
+@media screen and (min-width: 480px) and (max-width: 624px){
+@-ms-viewport { width: 480px; }
+.wrapper{width:1025px;margin: 100;margin-left: 70;margin-right: auto;text-align:right;}
+}
+
+@media screen and (min-width: 624px) and (max-width: 768px){
+@-ms-viewport { width: 624px; }
+.wrapper{width:1025px;margin: 100;margin-left: 130;margin-right: auto;text-align:right;}
+}
+
+@media screen and (min-width: 768px) and (max-width: 959px) {
+@-ms-viewport { width: 768px; }
+.wrapper{width:1025px;margin: 100;margin-left: 190;margin-right: auto;text-align:right;}
+}
+
+@media screen and (min-width: 959px) and (max-width: 1150px) {
+@-ms-viewport { width: 959px; }
+.wrapper{width:1025px;margin: 100;margin-left: 260;margin-right: auto;text-align:right;}
+}
+
+@media screen and (min-width: 1150px) and (max-width: 1341px) {
+@-ms-viewport { width: 1150px; }
+.wrapper{width:1025px;margin: 100;margin-left: 400;margin-right: auto;text-align:right;}
+}
+
+@media screen and (min-width: 1341px) and (max-width: 1532px) {
+@-ms-viewport { width: 1341px; }
+.wrapper{width:1025px;margin: 100;margin-left: 570;margin-right: auto;text-align:right;}
+}
+
+#selectFrom{
+    font-size: 18px;
+}
+
+#selectTo {
+    font-size: 18px;
+}
+
+</style>
+
+<title>Unit Converter</title>  
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+	<div class="container">
+        	<ul class="nav navbar-nav">
+      			<li><a href="#">Angle</a></li>
+     			<li><a href="https://www.digitaldutch.com/unitconverter/length.htm">Length</a></li>
+      			<li><a href="https://www.digitaldutch.com/unitconverter/mass.htm">Mass</a></li> 
+     			<li><a href="https://www.digitaldutch.com/unitconverter/speed.htm">Speed</a></li>
+			<li><a href="https://www.digitaldutch.com/unitconverter/time.htm">Time</a></li>
+		</ul>
+	</div>
+</nav>
+
+	<div id="calculator" class="wrapper">
+		<div class="row">
+			<div class="col-xs-4">
+				<h1><span class="label label-success">Angle</span></h1>
+				<h1>Unit Converter</h1>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="unitArea">  
+ 				<div class="col-xs-4">
+   				 	<label><font size="5">From</font></label>
+       				 	<div class="unitLeft">
+						<input id="inputFrom" class="form-control" type="number"  value="" onkeyup="Convert(1);" oninput="Convert(1);" placeholder="Number">
+				 	</div>	
+        			 	<div class="unitRight">
+						<select id="selectFrom" class="btn btn-primary dropdown-toggle" onchange="Convert();">
+             						<option value="0">arcminute</option>
+             						<option value="1">arcsecond</option>
+             						<option value="2">circle</option>
+             						<option value="3">degree</option>
+             						<option value="4">gon</option>         
+          					</select>
+				 	</div>
+   				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="unitArea">			
+				<div class="col-xs-4">
+				 	<label><font size="5">To</font></label>	 
+   				 	<div class="unitLeft">
+        				 	<input id="inputTo" class="form-control" type="number"  value="" onkeyup="Convert(2);" oninput="Convert(2);" >
+      				 	</div>
+      				 	<div class="unitRight">
+        				 	<select id="selectTo" class="btn btn-primary dropdown-toggle" onchange="Convert();">      
+             					 	<option value="0">arcminute</li></option>
+             					 	<option value="1">arcsecond</option>
+             					 	<option value="2">circle</option>
+             					 	<option value="3">degree</option>
+             					 	<option value="4">gon</option> 	
+         				 	</select>		
+      				 	</div>
+    				</div>
+ 			</div>
+		</div>	
+	</div>
+
+</body>
+</html> 
